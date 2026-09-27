@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 10 15 26;
+    --foreground: 241 245 249;
+  }
+
+  * {
+    @apply border-edgemind-border;
+  }
+
+  body {
+    @apply bg-edgemind-bg text-edgemind-text font-sans;
+  }
+
+  ::selection {
+    @apply bg-edgemind-accent/30 text-edgemind-accent;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-edgemind-panel/80 backdrop-blur-xl border border-edgemind-border/50;
+  }
+
+  .glass-panel-hover {
+    @apply glass-panel hover:bg-edgemind-panelHover/90 transition-all duration-200;
+  }
+
+  .neon-border {
+    @apply border border-edgemind-accent/30 shadow-[0_0_20px_rgba(0,212,170,0.1)];
+  }
+
+  .neon-text {
+    @apply text-edgemind-accent;
+  }
+
+  .metric-card {
+    @apply glass-panel p-4 rounded-xl;
+  }
+
+  .btn-primary {
+    @apply px-4 py-2 bg-edgemind-accent/20 text-edgemind-accent border border-edgemind-accent/30 rounded-lg 
+           hover:bg-edgemind-accent/30 transition-all duration-200 font-medium;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-2 bg-edgemind-panelHover text-edgemind-text border border-edgemind-border/50 rounded-lg 
+           hover:bg-edgemind-panelHover/80 transition-all duration-200 font-medium;
+  }
+
+  .status-indicator {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .status-online {
+    @apply bg-edgemind-online shadow-[0_0_8px_rgba(34,197,94,0.5)];
+  }
+
+  .status-offline {
+    @apply bg-edgemind-offline shadow-[0_0_8px_rgba(239,68,68,0.5)];
+  }
+
+  .status-degraded {
+    @apply bg-edgemind-degraded shadow-[0_0_8px_rgba(245,158,11,0.5)];
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.edgemind.border') transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: theme('colors.edgemind.border');
+    border-radius: 3px;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-edgemind-accent to-edgemind-text bg-clip-text text-transparent;
+  }
+}
